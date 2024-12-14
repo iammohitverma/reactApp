@@ -46,6 +46,15 @@ export const Header = () => {
               </li>
               <li>
                 <NavLink
+                  to="/apiCheckPage"
+                  className={getCustomActiveClass} //by default react provide active class on active item if we need to customize active or change to another active class then use this function
+                >
+                  ApiCheckPage
+
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/xyz"
                   className={getCustomActiveClass} //by default react provide active class on active item if we need to customize active or change to another active class then use this function
                 >

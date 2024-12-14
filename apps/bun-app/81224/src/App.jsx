@@ -10,6 +10,7 @@ import { MoviesListingData } from "./apiFunctions/moviesListingData";
 import { MovieSinglePostData } from "./apiFunctions/movieSinglePostData";
 import { getContactData } from "./routing/Contact";
 import "./App.css";
+import { ApiCheckPage } from "./JsonPlaceholder/ApiCheckPage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: "/contact", // Another child route for single movie post
         element: <Contact />,
         action: getContactData, // For getting form data
+      },
+      {
+        path: "/apiCheckPage", // Another child route for single movie post
+        element: <ApiCheckPage />,
       },
       // {
       //   path: "*", // Another child route
