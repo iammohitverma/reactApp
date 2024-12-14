@@ -1,0 +1,26 @@
+Open Powershell with Run as administrator then run this script to add code in hosts file to block websites 👇
+
+# AI Websites Blocker Script
+$hostsPath = "C:\Windows\System32\drivers\etc\hosts"
+$blockList = @(
+    "chat.openai.com",
+    "bard.google.com",
+    "beta.character.ai",
+    "https://www.perplexity.ai",
+    "https://www.notion.so",
+    "https://www.jasper.ai"
+)
+
+# Backup existing hosts file
+Copy-Item $hostsPath "$hostsPath.bak" -Force
+
+# Add block entries
+foreach ($site in $blockList) {
+    $entry = "127.0.0.1 $site"
+    if (-not (Get-Content $hostsPath | Select-String $site)) {
+        Add-Content $hostsPath $entry
+        Write-Host "Blocked $site"
+    }
+}
+
+Write-Host "AI websites blocked. Please restart your browser!"
